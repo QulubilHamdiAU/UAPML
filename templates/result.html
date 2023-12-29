@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hasil Prediksi</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <style>
+        body {
+            background-color: #F4F4F4;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .contact-section {
+            padding-top: 5px;
+            padding-bottom: 50px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 1000px;
+            margin: auto;
+            padding: 30px;
+        }
+
+        .title-box {
+            text-align: center;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+
+        .sec-title {
+            margin-top: 4px;
+            font-weight: bold;
+            color: #1B4242;
+            font-size: 28px;
+        }
+
+        .inner-content {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .contact-form-area {
+            text-align: center;
+        }
+
+        .contact-form-area p {
+            margin: unset;
+            padding: none;
+            color: #1B4242;
+            text-transform: capitalize;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .contact-form-area p.subtitle {
+            font-size: larger;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .contact-form-area p.accuracy-prediction {
+            font-size: small;
+            text-align: left;
+            margin: 5px 0;
+        }
+
+        .contact-form-area p.prediction-label {
+            font-size: xx-large;
+            color: #FF5733; 
+            margin-bottom: 20px;
+        }
+
+        .sidebar-content {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            height: 400px;
+            width: 300px;
+        }
+
+        .sidebar-content img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .sidebar-content p {
+            font-size: 25px;
+            margin-top: 20px;
+            color: #1B4242;
+        }
+
+        .btn-back {
+            background-color: #EEE7DA;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="contact-section" id="result">
+        <div class="container">
+            <div class="title-box">
+                <div class="sec-title mt-4">Hasil Prediksi</div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-md-12 col-sm-12 content-column">
+                    <div class="inner-content">
+                        <div class="contact-form-area">
+                            <p>{{ model }}</p>
+                            <p class="subtitle" style="margin-bottom: 10px;">Label yang Diprediksi adalah:</p>
+                            <p class="prediction-label">{{ labels[pred] }}</p>
+                            <p class="subtitle accuracy-prediction">Accuracy: {{ (probs|max) }}%</p>
+                            <p class="subtitle accuracy-prediction">Prediction Time: {{ (run_time) }} second</p>
+                            <input type="hidden" id="probability" value={{(probs|max)}}>
+                            <div id="myProgress">
+                                <div id="myBar"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12 col-sm-12 sidebar-column">
+                    <div class="sidebar-content">
+                        <img src="{{ url_for('static', filename=img) }}" alt="" class="img-fluid rounded-pill">
+                        <p>Image hasil input</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container d-flex justify-content-center">
+        <a href="/" class="btn btn-back">Back</a>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
