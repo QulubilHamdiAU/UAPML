@@ -4,6 +4,8 @@
 Repository ini berisi pengerjaan Ujian Akhir Praktikum Mata Kuliah Pembelajaran Mesin.
 Pengerjaan ini menggunakan dataset image dengan permasalahan yaitu prediksi model Hyoerparameter Tuning.
 
+web dapat diakses dengan link : http://127.0.0.1:2000/
+
 Library yang digunakan:
 1. Flask
 2. Keras
